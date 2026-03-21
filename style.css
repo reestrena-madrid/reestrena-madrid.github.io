@@ -1,0 +1,112 @@
+:root {
+    --plum: #8c3b66; 
+    --plum-light: #ab6388;
+    --white: #ffffff;
+    --beige-light: #f9f7f5;
+}
+
+/* RESET GENERAL */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Montserrat', sans-serif; background: var(--white); color: #333; line-height: 1.6; overflow-x: hidden; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+/* CABECERA STICKY */
+header { background: var(--white); padding: 15px 0; border-bottom: 1px solid #f2f2f2; position: sticky; top: 0; z-index: 1000; }
+nav { display: flex; justify-content: space-between; align-items: center; }
+.logo-nav { height: 45px; }
+.nav-links { list-style: none; display: flex; gap: 30px; align-items: center; }
+.nav-links a { text-decoration: none; color: var(--plum); font-weight: 600; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+
+.btn-wa { background: var(--plum); color: white !important; padding: 10px 25px; border-radius: 50px; transition: 0.3s ease; white-space: nowrap; }
+.btn-wa:hover { background: var(--plum-light); transform: scale(1.05); }
+
+/* HERO SECTION */
+.hero { 
+    padding: 160px 0; text-align: center;
+    background: linear-gradient(rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0.65)), 
+                url('img/portada-reestrena.webp') center/cover no-repeat;
+}
+.handwritten { font-family: 'Alex Brush', cursive; font-size: 8rem; color: var(--plum); line-height: 1; }
+.hero-tagline { letter-spacing: 14px; color: var(--plum); font-size: 1.6rem; margin-top: 15px; font-weight: 800; text-transform: uppercase; }
+.hero-line { width: 100px; height: 3px; background: var(--plum-light); margin: 25px auto 0; }
+
+/* COLECCIÓN (CON EFECTO REBOTE) */
+.carousel-section { padding: 100px 0; background: var(--beige-light); text-align: center; }
+.brand-title { color: var(--plum); letter-spacing: 6px; margin-bottom: 40px; font-size: 1.8rem; text-transform: uppercase; }
+.carousel-container { overflow-x: auto; padding-bottom: 30px; }
+.carousel-track { display: flex; gap: 20px; padding: 0 25px; min-width: max-content; }
+
+.product-card { 
+    width: 300px; 
+    height: 450px; 
+    position: relative; 
+    overflow: hidden; 
+    border-radius: 5px; 
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* EFECTO REBOTE */
+}
+
+.product-card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s ease; }
+
+/* Overlay dinámico que sube al hacer hover */
+.product-overlay { 
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    width: 100%; 
+    background: rgba(140, 59, 102, 0.85); 
+    color: white; 
+    padding: 20px; 
+    transform: translateY(100%); 
+    transition: 0.4s ease-in-out; 
+}
+
+/* EFECTOS HOVER PRODUCTOS */
+.product-card:hover {
+    transform: translateY(-10px) scale(1.02); /* Rebote hacia arriba */
+}
+.product-card:hover .product-overlay {
+    transform: translateY(0);
+}
+.product-overlay span { font-weight: 600; letter-spacing: 2px; font-size: 0.8rem; text-transform: uppercase; }
+
+/* MARCAS (MARQUESINA) */
+.brands-section { padding: 50px 0; background: #fff; text-align: center; overflow: hidden; }
+.brands-marquee { overflow: hidden; white-space: nowrap; position: relative; padding: 10px 0; }
+.brands-track { display: inline-block; animation: scroll 25s linear infinite; }
+.brands-track span { font-size: 1rem; font-weight: 600; color: #bca0ad; margin: 0 50px; letter-spacing: 4px; }
+
+@keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* SECCIÓN FILOSOFÍA Y CONCEPTOS */
+.section { padding: 100px 0; text-align: center; }
+.concept-flex { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+.concept-item { flex: 1; min-width: 300px; max-width: 380px; background: var(--beige-light); border-radius: 12px; padding: 40px; transition: 0.3s; }
+.concept-card { width: 100%; border-radius: 8px; margin-bottom: 20px; }
+.concept-text h3 { color: var(--plum); font-size: 1.1rem; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px; }
+.concept-text p { font-size: 0.95rem; color: #555; text-align: justify; }
+
+.testimonio-card { background: white !important; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+
+/* FOOTER (LIMPIO Y SIN SUBRAYADOS) */
+footer { background: var(--plum); color: white; padding: 60px 0; text-align: center; }
+.logo-footer { height: 60px; margin-bottom: 20px; }
+.address-link { color: white !important; text-decoration: none !important; font-size: 0.9rem; opacity: 0.9; }
+.social-links a { color: white !important; font-size: 2.2rem; margin: 0 15px; text-decoration: none !important; }
+.footer-tag { font-family: 'Alex Brush', cursive; font-size: 1.8rem; margin-top: 20px; opacity: 0.7; }
+
+/* RESPONSIVE (OPTIMIZADO MÓVIL) */
+@media (max-width: 768px) {
+    .nav-item-desktop { display: none; } /* Oculta textos del menú para que quepa el botón WA */
+    .logo-nav { height: 32px; }
+    .btn-wa { padding: 8px 15px; font-size: 0.7rem; }
+    .handwritten { font-size: 3.5rem; }
+    .hero-tagline { letter-spacing: 6px; font-size: 1rem; }
+    .hero { padding: 100px 0; }
+    .concept-item { min-width: 100%; margin-bottom: 30px; }
+    .product-card { width: 280px; height: 400px; }
+}
