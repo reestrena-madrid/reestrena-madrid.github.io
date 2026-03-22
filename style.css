@@ -104,8 +104,9 @@ footer { background: var(--plum); color: white; padding: 60px 0; text-align: cen
     .hero { padding: 100px 0; }
     
     .section-intro {
-        padding: 0 20px;
-        text-align: center; 
+        padding: 0 25px; /* Un pelín más de margen para que no toque bordes */
+        text-align: justify; /* Ahora sí, volverá a estar recto por los lados */
+        hyphens: auto; /* Truco: esto añade guiones si una palabra es muy larga, evitando huecos feos */
         font-size: 0.95rem;
     }
 
